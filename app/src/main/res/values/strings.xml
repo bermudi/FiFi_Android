@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FiFi</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="choose_players">Choose the number of players:</string>
+    <string name="btn_3_players">3 Players</string>
+    <string name="btn_4_players">4 Players</string>
+    <string name="btn_5_players">5 Players</string>
+    <string name="title_activity_tournament3_players">FiFi</string>
+    <string name="title_activity_tournament__a_layout">tournament_A_layout</string>
+    <string name="player1">Player 1</string>
+    <string name="player2">Player 2</string>
+    <string name="player3">Player 3</string>
+    <string name="wildcard">Wildcard</string>
+    <string name="title_activity_test">test</string>
+    <string name="title_activity_tournament__b_layout">FiFi</string>
+    <string name="title_activity_get_image">GetImage</string>
+
+</resources>

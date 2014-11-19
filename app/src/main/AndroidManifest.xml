@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bermudi.fifi" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.bermudi.fifi.PlayerSelection"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.bermudi.fifi.tournament3Players"
+            android:icon="@drawable/ic_glass_logo"
+            android:label="@string/title_activity_tournament3_players" >
+        </activity>
+        <activity
+            android:name="com.bermudi.fifi.Tournament_A_layout"
+            android:label="@string/title_activity_tournament__a_layout"
+            android:parentActivityName="com.bermudi.fifi.PlayerSelection" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bermudi.fifi.PlayerSelection" />
+        </activity>
+        <activity
+            android:name="com.bermudi.fifi.test"
+            android:label="@string/title_activity_test" >
+        </activity>
+        <activity
+            android:name="com.bermudi.fifi.GetImage"
+            android:label="@string/title_activity_get_image"
+            android:parentActivityName="com.bermudi.fifi.PlayerSelection" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bermudi.fifi.PlayerSelection" />
+        </activity>
+    </application>
+
+</manifest>
