@@ -17,23 +17,11 @@
 
 package com.bermudi.fifi;
 
-<<<<<<< HEAD
 //import java.awt.image.BufferedImage; @FIXME
 //import javax.imageio.ImageIO;         @FIXME
 
 
 public class Team {
-=======
-import java.io.Serializable;
-
-//import java.awt.image.BufferedImage; @FIXME
-//import javax.imageio.ImageIO;         @FIXME
-
-/**
- * @author daniel
- */
-public class Team implements Serializable {
->>>>>>> origin/master
 
     //public static final String TEAM_LOC = "res/crests"; //@FIXME is this needed?
 
