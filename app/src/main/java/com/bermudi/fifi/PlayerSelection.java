@@ -25,24 +25,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.gson.Gson;
-
 
 public class PlayerSelection extends Activity {
     //Names for Preferences Keys
     private static final String PREF_FR = "firstRun";
-    private static final String API = "1.0";
-
-    private static Team[] TEAMS = new Team[16];
+    private static final String API = "1.1";
 
     public static String getApi() {
 
         return API;
-
     }
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_selection);
@@ -53,10 +47,9 @@ public class PlayerSelection extends Activity {
 
         if (sharedPref.getBoolean(PREF_FR, true)) {
 
-            createDefaults();
+            Team.createDefaults(this);
             editor.putBoolean(PREF_FR, false);
             editor.commit();
-
         }
 
         final Button btn3players = (Button) findViewById(R.id.btn3players);
@@ -89,47 +82,8 @@ public class PlayerSelection extends Activity {
         Intent intent = new Intent(getApplicationContext(), Tournament.class);
         intent.putExtra("players", i);
         startActivity(intent);
-
     }
 
-    private void createDefaults() {
-
-        TEAMS[0] = new Team("Manchester United", 5f, R.drawable.crest1);
-        TEAMS[1] = new Team("Real Madrid", 5f, R.drawable.crest2);
-        TEAMS[2] = new Team("Paris Saint Germain", 5f, R.drawable.crest3);
-        TEAMS[3] = new Team("Liverpool", 4.5f, R.drawable.crest4);
-        TEAMS[4] = new Team("Arsenal", 4.5f, R.drawable.crest5);
-        TEAMS[5] = new Team("F.C. Barcelona", 5f, R.drawable.crest6);
-        TEAMS[6] = new Team("Chelsea", 5f, R.drawable.crest7);
-        TEAMS[7] = new Team("Tottenham Hotspur", 4.5f, R.drawable.crest8);
-        TEAMS[8] = new Team("A.C. Milan", 4.5f, R.drawable.crest9);
-        TEAMS[9] = new Team("Juventus", 5f, R.drawable.crest10);
-        TEAMS[10] = new Team("Internazionale Milano", 4.5f, R.drawable.crest11);
-        TEAMS[11] = new Team("Manchester City", 5f, R.drawable.crest12);
-        TEAMS[12] = new Team("Atlético Madrid", 4.5f, R.drawable.crest13);
-        TEAMS[13] = new Team("Borussia Dortmund", 5f, R.drawable.crest14);
-        TEAMS[14] = new Team("Bayern Munich", 5f, R.drawable.crest15);
-        TEAMS[15] = new Team("Galatasaray SK", 4f, R.drawable.crest16);
-
-        saveTeams();
-
-    }
-
-    private void saveTeams() {
-
-        SharedPreferences sharedPref = getSharedPreferences(
-                getString(R.string.preference_file_key) + API, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-
-        for (Team t : TEAMS) {
-            Gson gsonTeam = new Gson();
-            String i = Integer.toString(t.getID());
-            editor.putString(i, gsonTeam.toJson(t));
-        }
-
-        editor.apply();
-
-    }
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {

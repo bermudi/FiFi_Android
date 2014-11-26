@@ -15,7 +15,6 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-
 <resources>
 
     <string name="app_name">FiFi</string>
@@ -31,7 +30,8 @@
     <string name="player5">Player 5</string>
     <string name="wildcard">Wildcard</string>
     <string name="preference_file_key">com.bermudi.fifi.TeamsAndSettings</string>
-    <string name="empty" />
-
+    <string name="empty"></string>
+    <string name="title_activity_edit_teams">Edit Teams</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
