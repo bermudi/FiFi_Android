@@ -75,6 +75,15 @@ public class PlayerSelection extends Activity {
                 playerSelected(5);
             }
         });
+
+        final Button btnEditTeams = (Button) findViewById(R.id.btnEditTeams);
+        btnEditTeams.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), EditTeams.class);
+                startActivity(i);
+            }
+        });
     }
 
     private void playerSelected(int i) {

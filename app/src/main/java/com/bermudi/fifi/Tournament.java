@@ -17,14 +17,11 @@
 
 package com.bermudi.fifi;
 
+import android.app.ActionBar;
 import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
 
 import java.util.Random;
 
@@ -54,17 +51,19 @@ public class Tournament extends Activity {
 
         switch (players) {
             case 3:
-                setContentView(R.layout.three_player_layout);  //@FIXME
+                setContentView(R.layout.three_player_layout);
                 break;
             case 4:
-                setContentView(R.layout.four_player_layout); //@FIXME
+                setContentView(R.layout.four_player_layout);
                 break;
             case 5:
                 setContentView(R.layout.five_player_layout);
                 break;
         }
 
-        loadTeams();
+        ActionBar ab = getActionBar();
+        ab.hide();
+        TEAMS = Team.loadTeams(TEAMS, this);
         shuffleArray(TEAMS);
 
         ImageView[] crests = new ImageView[16];
@@ -95,39 +94,4 @@ public class Tournament extends Activity {
             teamRat[i].setText(Float.toString(TEAMS[i].getRating()));
         }
     }
-
-    private void loadTeams() {
-
-        SharedPreferences sharedPref = getSharedPreferences(
-                getString(R.string.preference_file_key) + API, Context.MODE_PRIVATE);
-
-        Gson gsonTeam = new Gson();
-        String strTeam;
-
-        for (int i = 0; i < 16; i++) {
-            strTeam = sharedPref.getString(Integer.toString(i), "");
-            TEAMS[i] = gsonTeam.fromJson(strTeam, Team.class);
-        }
-
-    }
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.tournament__a_layout, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 }
